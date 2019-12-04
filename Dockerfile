@@ -6,7 +6,6 @@ LABEL maintainer="whatwedo GmbH <welove@whatwedo.ch>" \
     org.label-schema.vcs-url="https://github.com/whatwedo/docker-commitlint" \
     org.label-schema.vendor="whatwedo GmbH"
 
-RUN npm install --global --save-dev @commitlint/config-conventional @commitlint/cli
-RUN echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+RUN npm install --global @commitlint/config-conventional @commitlint/cli
 
-ENTRYPOINT ["commitlint"]
+ENTRYPOINT ["commitlint", "-x", "@commitlint/config-conventional"]
